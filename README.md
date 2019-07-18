@@ -97,6 +97,15 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 
+## cloud9にgatsbyをインストール
+
+Gatsbyのプロジェクトへcdし、以下のコマンドを実行
+
+ npm install　（package.jsonの内容に従ってライブラリをインストール（Maven的なもの））
+ npm install -g gatsby　(要らないかも)
+
+
+
 ## cloud9上でのGatsbyの動作確認
 
 Gatsbyのプロジェクトへcdし、以下のコマンドを実行
@@ -104,3 +113,25 @@ Gatsbyのプロジェクトへcdし、以下のコマンドを実行
 　gatsby develop -H $IP -p $PORT
 
 実行後、Cloud9のPreview → Preview Running Application をクリック
+
+
+## 初回
+
+cloud9の環境作成：
+　create environment
+　→環境名：なんでも（MS2BookManagement）
+　　　説明：任意
+　　　　でNextStep
+　→デフォルトのままNextStep
+　→Create environment
+
+cloud9とcodecommitの連携：
+　cloud9で下記コマンドを入力
+　　git --version　（gitがインストールされているか確認）
+　　git config --global user.name "ユーザ名"　（gitコミットと関連付けるユーザ名を設定）
+　　git config --global user.email メールアドレス　（gitコミットと関連付けるメールアドレスを設定）
+　　aws --version　（AWS CLI がインストールされているか確認）
+　　git config --global credential.helper '!aws codecommit credential-helper $@'　（HTTPS 接続用の AWS CLI の認証情報ヘルパーを設定）
+　　git config --global credential.UseHttpPath true　（HTTPS 接続用の AWS CLI の認証情報ヘルパーを設定）
+　　git clone https://git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/BookManagementFront　（フロントエンドのプロジェクトをクローン）
+　　git clone https://git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/BookManagementBack　（バックエンドのプロジェクトをクローン）

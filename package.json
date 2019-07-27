@@ -14,8 +14,11 @@
   },
   "dependencies": {
     "gatsby": "^2.13.12",
+    "material-ui": "^0.20.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1",
+    "react-tap-event-plugin": "^3.0.3"
   },
   "devDependencies": {
     "prettier": "^1.18.2"

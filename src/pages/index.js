@@ -1,9 +1,13 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react';
+import ReactDOM from 'react-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { BrowserRouter as Router } from "react-router-dom";
+import App from '../app';
 
 export default () => (
-    <div>
-        <div>Hello world amplify console tsukiji</div>
-        <Link to="/lambda/">Lambdaのテスト（何かしら修正した）</Link>
-    </div>
+    <MuiThemeProvider>
+        <Router>
+            <App />
+        </Router>
+    </MuiThemeProvider>
 )

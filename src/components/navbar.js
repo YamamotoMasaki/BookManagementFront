@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { AppBar, MenuItem, Drawer } from 'material-ui';
-import { Link } from "react-router-dom";
+import { Link } from "@reach/router"
 
 class NavBar extends Component {
   render() {
@@ -12,6 +12,7 @@ class NavBar extends Component {
           open={this.props.open}
           onRequestChange={() => this.props.onToggle()}
         >
+          <MenuItem><Link to='/'>Home</Link></MenuItem>
           <MenuItem><Link to='/regist'>Regist</Link></MenuItem>
           <MenuItem><Link to='/loan'>Loan</Link></MenuItem>
           <MenuItem><Link to='/return'>Return</Link></MenuItem>

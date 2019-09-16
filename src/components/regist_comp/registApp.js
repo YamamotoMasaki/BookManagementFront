@@ -41,15 +41,18 @@ class RegistApp extends Component {
         const msg = this.renderStatusMessage()
         return(
             <div>
-                <label>書籍名：<br />
-                    <input type='text'
-                        placeholder='書籍名を入力'
-                        value={this.state.value}
-                        onChange={e => this.handleChange(e)} />
-                    {msg}
-                </label>
-                <br />
-                <input type='submit' value='登録' />
+                <form method="get" action="https://in1r9v7w00.execute-api.ap-northeast-1.amazonaws.com/Prod/regist_db">
+                    <label>書籍名：<br />
+                        <input type='text'
+                            name='bookname'
+                            placeholder='書籍名を入力'
+                            value={this.state.value}
+                            onChange={e => this.handleChange(e)} />
+                        {msg}
+                    </label>
+                    <br />
+                    <input type='submit' value='登録' />
+                </form>
             </div>
             )
     }

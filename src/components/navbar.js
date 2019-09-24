@@ -17,6 +17,7 @@ class NavBar extends Component {
           <MenuItem><Link to='/loan'>Loan</Link></MenuItem>
           <MenuItem><Link to='/return'>Return</Link></MenuItem>
           <MenuItem><Link to='/list'>List</Link></MenuItem>
+          <MenuItem><Link to='/lambda'>Test</Link></MenuItem>
         </Drawer>
         <AppBar
           title="BookManagementApp"

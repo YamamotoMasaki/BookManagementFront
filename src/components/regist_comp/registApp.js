@@ -41,7 +41,7 @@ class RegistApp extends Component {
         const msg = this.renderStatusMessage()
         return(
             <div>
-                <form method="get" action="https://in1r9v7w00.execute-api.ap-northeast-1.amazonaws.com/book-management/regist-db">
+                <form method="get" action="https://in1r9v7w00.execute-api.ap-northeast-1.amazonaws.com/Prod/book-management/regist-db">
                     <label>書籍名：<br />
                         <input type='text'
                             name='bookname'

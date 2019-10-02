@@ -47,7 +47,7 @@ class RegistApp extends Component {
                             name='bookname'
                             placeholder='書籍名を入力'
                             value={this.state.value}
-                            onChange={e => this.handleChange(e)} />
+                            onChange={e => this.handleChange(e)} required />
                         {msg}
                     </label>
                     <br />

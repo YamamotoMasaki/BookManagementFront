@@ -7,6 +7,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
+const windowGlobal = typeof window !== 'undefined' && window;
+
 const classes = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -31,7 +33,7 @@ class ListApp extends Component {
     getUrlParameter(name) {
         name = name.replace(/[[]/, '[').replace(/[\]]/, '\\]');
         var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-        var results = regex.exec(window.location.search);
+        var results = regex.exec(windowGlobal.location.search);
         return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
     };
     

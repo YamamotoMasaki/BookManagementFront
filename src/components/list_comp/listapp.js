@@ -7,7 +7,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-const windowGlobal = typeof window !== 'undefined' && window;
+// Gatsbyのビルドエラー回避用
+const window_Location_searchGlobal = typeof window.location.search !== 'undefined' && window.location.search;
 
 const classes = makeStyles(theme => ({
   root: {
@@ -25,16 +26,29 @@ class ListApp extends Component {
     constructor (props) {
         super(props)
         this.state = {
-            list_contents_info: this.getUrlParameter('bookname')
+            list_contents_info: this.getUrlParameter()
         }
     }
     
     //指定したパラメータのデータを取得する関数
-    getUrlParameter(name) {
-        name = name.replace(/[[]/, '[').replace(/[\]]/, '\\]');
-        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-        var results = regex.exec(windowGlobal.location.search);
-        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    getUrlParameter() {
+        // URLのパラメータを取得
+        var urlParam = window_Location_searchGlobal.substring(1);
+        
+        // 「&」が含まれている場合は「&」で分割
+        var param = urlParam.split('&');
+        
+        // パラメータを格納する用の配列を用意
+        var paramArray = [];
+        
+        // 用意した配列にパラメータを格納
+        for (var i = 0; i < param.length; i++) {
+          var paramItem = param[i].split('=');
+          paramArray[paramItem[0]] = paramItem[1];
+        }
+        
+        // 取り出したパラメータをデコードして返す
+        return decodeURIComponent(paramArray.bookname);
     };
     
     render () {

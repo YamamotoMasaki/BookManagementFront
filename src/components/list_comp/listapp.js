@@ -6,9 +6,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-
-// Gatsbyのビルドエラー回避用
-const windowGlobal = typeof window !== 'undefined' && window;
+import { globalHistory } from "@reach/router"
 
 const classes = makeStyles(theme => ({
   root: {
@@ -33,8 +31,7 @@ class ListApp extends Component {
     //指定したパラメータのデータを取得する関数
     getUrlParameter() {
         // URLのパラメータを取得
-        // @ts-ignore
-        var urlParam = windowGlobal.location.search.substring(1);
+        var urlParam = globalHistory.location.search.substring(1);
         
         // 「&」が含まれている場合は「&」で分割
         var param = urlParam.split('&');

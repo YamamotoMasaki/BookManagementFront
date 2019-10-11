@@ -8,7 +8,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 // Gatsbyのビルドエラー回避用
-const window_Location_searchGlobal = typeof window.location.search !== 'undefined' && window.location.search;
+const windowGlobal = typeof window !== 'undefined' && window;
 
 const classes = makeStyles(theme => ({
   root: {
@@ -33,7 +33,8 @@ class ListApp extends Component {
     //指定したパラメータのデータを取得する関数
     getUrlParameter() {
         // URLのパラメータを取得
-        var urlParam = window_Location_searchGlobal.substring(1);
+        // @ts-ignore
+        var urlParam = windowGlobal.location.search.substring(1);
         
         // 「&」が含まれている場合は「&」で分割
         var param = urlParam.split('&');
@@ -49,7 +50,7 @@ class ListApp extends Component {
         
         // 取り出したパラメータをデコードして返す
         return decodeURIComponent(paramArray.bookname);
-    };
+    }
     
     render () {
         if (!this.state.list_contents_info) {

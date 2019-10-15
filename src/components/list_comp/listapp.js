@@ -37,22 +37,24 @@ class ListApp extends Component {
         var param = urlParam.split('&');
         
         // パラメータを格納する用の配列を用意
-        var paramArray = [];
+        var paramArray = {bookname:{}};
         
         // 用意した配列にパラメータを格納
         for (var i = 0; i < param.length; i++) {
           var paramItem = param[i].split('=');
-          paramArray[paramItem[0]] = paramItem[1];
+          paramArray.bookname[i] = decodeURIComponent(paramItem[1]);
         }
         
-        // 取り出したパラメータをデコードして返す
-        return decodeURIComponent(paramArray.bookname);
+        return paramArray;
     }
     
     render () {
         if (!this.state.list_contents_info) {
             return <div>Loading...</div>
         }
+        
+        const { bookname } = this.state.list_contents_info;
+        
         return (
             <div>
                 <Paper className={classes.root}>
@@ -63,9 +65,11 @@ class ListApp extends Component {
                       </TableRow>
                     </TableHead>
                     <TableBody>
+                      {Object.keys(bookname).map(key => (
                         <TableRow>
-                          <TableCell>{this.state.list_contents_info}</TableCell>
+                          <TableCell>{bookname[key]}</TableCell>
                         </TableRow>
+                      ))}
                     </TableBody>
                   </Table>
                 </Paper>
